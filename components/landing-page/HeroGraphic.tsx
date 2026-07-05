@@ -1,9 +1,9 @@
 const C = {
-   dark: "#2e2e2e",
-   ink: "#1c1c1c",
-   charcoal: "#424242",
-   sand: "#ccbd9f",
-   sandLight: "#e9e0d1",
+   dark: "var(--ink-heavy)", // #262626
+   ink: "var(--ink-dark)", // #1c1c1c
+   charcoal: "var(--charcoal-light)", // #424242
+   sand: "var(--sand-mid)", // #d1c2a5
+   sandLight: "var(--sand)", // #e3d8c5
 };
 
 const HEX_PATH =
@@ -11,17 +11,28 @@ const HEX_PATH =
 
 function HexOutline({ uid }: { uid: string }) {
    return (
-      <svg viewBox="0 0 292 169" width="100%" overflow="visible" role="presentation">
+      <svg
+         viewBox="0 0 292 169"
+         width="100%"
+         overflow="visible"
+         role="presentation"
+      >
          <defs>
             <clipPath id={`clip-${uid}`}>
                <path d={HEX_PATH} transform="translate(0 0.215)" />
             </clipPath>
          </defs>
-         <path d={HEX_PATH} fill={C.dark} transform="translate(0 0.215)" />
+         <path
+            d={HEX_PATH}
+            fill={C.dark}
+            fillOpacity="0.55"
+            transform="translate(0 0.215)"
+         />
          <path
             d={HEX_PATH}
             fill="transparent"
-            stroke={C.sandLight}
+            stroke="#ffffff"
+            strokeOpacity="0.45"
             strokeWidth="1"
             strokeDasharray="680.265 680.265"
             strokeDashoffset="0"
@@ -34,10 +45,11 @@ function HexOutline({ uid }: { uid: string }) {
 
 function Label({ text }: { text: string }) {
    return (
-      <div className="flex items-center gap-2 w-full">
-         <div className="w-[7px] h-[7px] rounded-full bg-[#ccbd9f] flex-shrink-0" />
-         <div className="flex-1 h-px bg-[#ccbd9f]" />
-         <span className="text-[10px] font-bold tracking-[0.2em] text-[#e9e0d1] whitespace-nowrap">
+      <div className="flex items-center w-full">
+         <div className="w-[7px] h-[7px] rounded-full bg-sand-mid flex-shrink-0" />
+         <div className="flex-1 h-px bg-sand-mid" />
+         <div className="w-[7px] h-[7px] rounded-full bg-sand-mid flex-shrink-0" />
+         <span className="text-[10px] font-bold tracking-[0.2em] text-sand whitespace-nowrap ml-2">
             {text}
          </span>
       </div>
@@ -47,25 +59,29 @@ function Label({ text }: { text: string }) {
 export default function HeroGraphic() {
    return (
       <div className="relative w-[90%] max-w-[560px] aspect-[0.617647]">
-
-         {/* ── Vertical connector spine ── */}
-         <div className="absolute left-1/2 -translate-x-px top-[4%] h-[90%] w-px bg-[#ccbd9f] opacity-20 pointer-events-none" />
+         {/* Spine — FIRST in DOM so solid 3D objects naturally occlude it */}
+         <div className="absolute left-1/2 -translate-x-px top-[4%] bottom-[6%] w-[2px] bg-sand-mid opacity-60 pointer-events-none" />
 
          {/* ── BACK → FRONT render order ── */}
 
          {/* Bottom glow dot (94%) */}
          <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 top-[94%] flex items-center justify-center">
-            <div className="w-[7px] h-[7px] rounded-full bg-[#ccbd9f]" />
+            <div className="w-[7px] h-[7px] rounded-full bg-sand-mid" />
          </div>
 
-         {/* Bottom hex platform (87%) */}
-         <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 top-[87%] w-[76%]">
+         {/* Bottom hex platform (82%) */}
+         <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 top-[83.5%] w-[76%]">
             <HexOutline uid="bottom" />
          </div>
 
          {/* Stepped box — base slab (82%) */}
          <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 top-[82%] w-[43%]">
-            <svg viewBox="0 0 294 187" width="100%" overflow="visible" role="presentation">
+            <svg
+               viewBox="0 0 294 187"
+               width="100%"
+               overflow="visible"
+               role="presentation"
+            >
                <path
                   d="M 154 159.89 C 149.553 162.445 142.447 162.445 138 159.89 L 0 80.89 L 137.972 1.909 C 142.416 -0.636 149.583 -0.636 154.027 1.909 L 292 80.89 Z"
                   fill={C.dark}
@@ -93,7 +109,12 @@ export default function HeroGraphic() {
 
          {/* Stepped box — upper layer (76%) */}
          <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 top-[76%] w-[43%]">
-            <svg viewBox="0 0 294 187" width="100%" overflow="visible" role="presentation">
+            <svg
+               viewBox="0 0 294 187"
+               width="100%"
+               overflow="visible"
+               role="presentation"
+            >
                <path
                   d="M 97 104.75 C 94.198 106.107 89.802 106.107 87 104.75 L 0 50.057 L 87.115 1.014 C 89.915 -0.338 94.085 -0.338 96.885 1.014 L 184 50.057 Z"
                   fill={C.dark}
@@ -131,7 +152,12 @@ export default function HeroGraphic() {
 
          {/* Hex nut — CONTROL (59%) */}
          <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 top-[59%] w-[45%]">
-            <svg viewBox="0 0 292 216" width="100%" overflow="visible" role="presentation">
+            <svg
+               viewBox="0 0 292 216"
+               width="100%"
+               overflow="visible"
+               role="presentation"
+            >
                {/* Lower face drawn FIRST (behind), top face drawn SECOND (in front) */}
                <path
                   d="M 291.285 113.085 L 184.667 174.636 L 39.025 152.107 L 0 68.028 L 132.606 0 L 291.106 70 Z M 181.459 69.986 C 161.78 58.626 129.875 58.626 110.196 69.986 C 90.517 81.347 90.517 99.766 110.196 111.127 C 129.875 122.488 161.78 122.488 181.459 111.127 C 201.138 99.766 201.138 81.347 181.459 69.986 Z"
@@ -186,7 +212,12 @@ export default function HeroGraphic() {
 
          {/* Sphere — RESOLVE (36%) */}
          <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 top-[36%] w-[43%]">
-            <svg viewBox="0 0 298 299" width="100%" overflow="visible" role="presentation">
+            <svg
+               viewBox="0 0 298 299"
+               width="100%"
+               overflow="visible"
+               role="presentation"
+            >
                <path
                   d="M 147.5 0 C 228.962 0 295 66.038 295 147.5 C 295 228.962 228.962 295 147.5 295 C 66.038 295 0 228.962 0 147.5 C 0 66.038 66.038 0 147.5 0 Z"
                   fill={C.ink}
@@ -235,7 +266,12 @@ export default function HeroGraphic() {
 
          {/* Pyramid — CONNECT (14%) */}
          <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 top-[14%] w-[34%]">
-            <svg viewBox="0 0 292 299" width="100%" overflow="visible" role="presentation">
+            <svg
+               viewBox="0 0 292 299"
+               width="100%"
+               overflow="visible"
+               role="presentation"
+            >
                <path
                   d="M 292 84.5 L 146 167.948 L 0 85.5 L 146.14 0 Z"
                   fill={C.charcoal}
@@ -262,17 +298,15 @@ export default function HeroGraphic() {
                   strokeDashoffset="0"
                   transform="translate(145.5 84.698)"
                />
+               {/* Line from center of top face up through apex, dot at each end */}
+               <line x1="146" y1="84.5" x2="146" y2="-55" stroke="var(--sand-mid)" strokeWidth="1.5" strokeOpacity="0.8" />
+               <circle cx="146" cy="-55" r="4" fill="var(--sand-mid)" />
             </svg>
          </div>
 
          {/* CONNECT label (15%) */}
          <div className="absolute -translate-x-1/2 -translate-y-1/2 top-[15%] left-[71%] w-[43%]">
             <Label text="CONNECT" />
-         </div>
-
-         {/* Top glow dot (4%) — front-most */}
-         <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 top-[4%] flex items-center justify-center">
-            <div className="w-[7px] h-[7px] rounded-full bg-[#ccbd9f]" />
          </div>
 
       </div>
