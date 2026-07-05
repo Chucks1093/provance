@@ -9,10 +9,10 @@ const navLinks = [
 
 export default function Header() {
    return (
-      <header className="sticky top-0 z-50 flex items-center justify-between px-8 py-4 bg-ink-dark">
+      <header className="sticky top-0 z-50 flex items-center justify-between px-8 h-[8vh] bg-ink-dark border-b border-white/10">
          <ProvanceLogo className="text-white" />
 
-         <nav className="flex items-center gap-10">
+         <nav className="flex items-center gap-10 h-full">
             {navLinks.map((link) => (
                <a
                   key={link.label}
@@ -25,7 +25,7 @@ export default function Header() {
 
             <a
                href="#get-started"
-               className="px-6 py-3 text-sm font-bold tracking-wider bg-orange text-ink-dark hover:bg-orange-dark transition-colors"
+               className="px-6 py-3 text-sm font-bold  bg-orange text-ink-dark hover:bg-orange-dark transition-colors h-full flex items-center"
             >
                GET STARTED
             </a>

@@ -1,9 +1,11 @@
 import Header from "@/components/landing-page/Header";
+import Hero from "@/components/landing-page/Hero";
 
 export default function LandingPage() {
    return (
-      <main className="min-h-screen bg-ink-dark">
+      <main className="bg-ink-dark">
          <Header />
+         <Hero />
       </main>
    );
 }
