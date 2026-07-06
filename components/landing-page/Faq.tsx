@@ -67,7 +67,7 @@ function AccordionItem({ q, a }: { q: string; a: string }) {
 
 export default function Faq() {
    return (
-      <section className="w-full px-4 sm:px-8 py-3 sm:py-4 bg-ink">
+      <section id="faq" className="w-full bg-ink max-w-7xl mx-auto">
          <div className="w-full border border-sand-mid/10 bg-ink-dark">
             {/* Badge */}
             <div className="flex items-stretch border-b border-sand-mid/10">
@@ -90,31 +90,31 @@ export default function Faq() {
                      questions
                   </h2>
 
-                  {/* Contact */}
+                  {/* Learn more */}
                   <div className="mt-16 flex flex-col gap-4">
                      <div>
                         <p className="text-sand text-xs font-bold tracking-widest uppercase">
-                           Still have questions?
+                           Want to know more?
                         </p>
                         <p className="text-sand text-xs font-bold tracking-widest uppercase">
-                           We're here to help
+                           Read about what we are building
                         </p>
                      </div>
                      <div className="h-px bg-sand-mid/20 w-full" />
                      <div className="flex items-center justify-between gap-4">
                         <p className="text-sand/50 text-sm max-w-xs">
-                           If you handle complex workflows or need custom integrations, our
-                           team can help.
+                           Learn more about Provance, what we are building, and
+                           why we are building it.
                         </p>
                         <a
-                           href="#contact"
+                           href="/about"
                            className="flex-shrink-0 px-6 py-3 bg-sand text-ink-dark text-xs font-bold tracking-widest hover:bg-sand-light transition-colors"
                            style={{
                               clipPath:
                                  "polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px)",
                            }}
                         >
-                           CONTACT US
+                           LEARN MORE
                         </a>
                      </div>
                   </div>
