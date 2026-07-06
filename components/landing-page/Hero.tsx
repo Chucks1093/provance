@@ -2,15 +2,15 @@ import HeroGraphic from "@/components/landing-page/HeroGraphic";
 
 export default function Hero() {
    return (
-      <section className="grid grid-cols-2 gap-8 min-h-screen bg-ink px-8 ">
+      <section className="grid grid-cols-1 md:grid-cols-2 md:gap-8 min-h-screen bg-ink max-w-7xl mx-auto">
          {/* Left */}
-         <div className="flex flex-col gap-8 w-full max-w-2xl pt-25 border-x border-sand-faint px-8 pr-">
+         <div className="flex flex-col gap-6 md:gap-8 w-full  pt-16 md:pt-25 pb-12 md:pb-0 border-x border-sand-faint px-6 md:px-8 ">
             {/* Badge */}
             <div className="flex items-center justify-between w-full max-w-lg  border-t border-b  py-3 border-sand/40 ">
                <div className="flex items-center gap-2  pr-6 flex-shrink-0">
                   <div className="w-2.5 h-2.5 rounded-full bg-orange flex-shrink-0" />
                   <p className="text-sand text-xs font-mono uppercase">
-                     AI Support, automated
+                     Autonomous Agent Network
                   </p>
                </div>
                <div
@@ -24,30 +24,30 @@ export default function Hero() {
                />
             </div>
 
-            <h1 className="font-geist text-7xl leading-tight text-sand tracking-tighter font-normal">
-               Build Faster with
-               <span className="text-white"> Agent Workflows</span>
+            <h1 className="font-geist text-4xl sm:text-5xl md:text-7xl leading-[1.2] text-sand tracking-tighter font-normal">
+               Get the Best Agent
+               <span className="text-white"> for any Task</span>
             </h1>
 
-            <p className="text-base text-sand leading-relaxed max-w-md">
-               Connect your tools, data, and teams in one place.
-               <br />
-               Provance agents hire, coordinate, and execute tasks autonomously.
+            <p className="text-sm md:text-base text-sand/70 leading-relaxed max-w-md">
+               Provance helps you discover the best agents for your specific
+               task so the right work always gets to the right agent,
+               automatically.
             </p>
 
-            <div className="grid items-center gap-4 w-full max-w-lg">
+            <div className="flex flex-col gap-4 w-full max-w-lg">
                <a
                   href="#waitlist"
-                  className="flex items-center justify-center flex-1 h-[56px] bg-sand text-ink-dark font-bold text-sm hover:bg-sand-light transition-colors"
+                  className="flex items-center justify-center w-full h-[52px] bg-sand text-ink-dark font-bold text-sm hover:bg-sand-light transition-colors"
                   style={{
                      clipPath:
                         "polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px)",
                   }}
                >
-                  JOIN WAITLIST
+                  JOIN EARLY ACCESS
                </a>
                <div
-                  className="flex-1 h-[56px] p-[2px]"
+                  className="w-full h-[52px] p-[2px]"
                   style={{
                      clipPath:
                         "polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px)",
@@ -55,22 +55,22 @@ export default function Hero() {
                   }}
                >
                   <a
-                     href="#learn-more"
-                     className="flex items-center justify-center w-full h-full text-sand font-bold text-sm hover:bg-sand-mid/10 transition-colors"
+                     href="#overview"
+                     className="flex items-center justify-center w-full h-full text-sand font-bold text-sm transition-colors"
                      style={{
                         clipPath:
                            "polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px)",
                         background: "var(--ink-dark)",
                      }}
                   >
-                     LEARN MORE
+                     SEE HOW IT WORKS
                   </a>
                </div>
             </div>
          </div>
 
          {/* Right */}
-         <div className="relative flex items-center justify-center py-20 border-x border-sand-faint">
+         <div className="relative flex items-center justify-center py-8 md:py-20 min-h-[40vh] md:min-h-0 border-x border-sand-faint">
             <div className="hero-dots absolute inset-0" />
             <HeroGraphic />
          </div>

@@ -16,7 +16,7 @@ const STRIPE = {
 
 export default function Overview() {
    return (
-      <section className="w-full px-4 sm:px-8 py-3 sm:py-4 bg-ink">
+      <section id="overview" className="w-full px-4 sm:px-8 py-3 sm:py-4 bg-ink">
          <div className="relative w-full overflow-hidden bg-ink-dark border border-sand-mid/10">
 
             {/* ── Video layer (absolute, fills container) ── */}
