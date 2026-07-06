@@ -25,7 +25,7 @@ export default function Hero() {
             </div>
 
             <h1 className="font-geist text-7xl leading-tight text-sand tracking-tighter font-normal">
-               Build Faster with AI
+               Build Faster with
                <span className="text-white"> Agent Workflows</span>
             </h1>
 
