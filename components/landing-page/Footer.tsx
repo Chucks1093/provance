@@ -10,7 +10,7 @@ const CLIP = "polygon(20px 0, calc(100% - 20px) 0, 100% 20px, 100% calc(100% - 2
 
 export default function Footer() {
    return (
-      <section className="w-full px-4 sm:px-8 py-12 sm:py-20 bg-ink">
+      <section className="w-full px-4 sm:px-8 py-3 sm:py-4 bg-ink">
          <footer
             className="w-full bg-orange relative overflow-hidden"
             style={{ clipPath: CLIP }}

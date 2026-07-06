@@ -104,7 +104,7 @@ const features = [
 
 export default function Features() {
    return (
-      <section className="w-full px-4 sm:px-8 py-12 sm:py-20 bg-ink">
+      <section className="w-full px-4 sm:px-8 py-3 sm:py-4 bg-ink">
          <div className="w-full bg-ink-dark border border-sand-mid/10 overflow-hidden">
 
             {/* Badge */}

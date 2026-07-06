@@ -67,7 +67,7 @@ function AccordionItem({ q, a }: { q: string; a: string }) {
 
 export default function Faq() {
    return (
-      <section className="w-full px-4 sm:px-8 py-12 sm:py-20 bg-ink">
+      <section className="w-full px-4 sm:px-8 py-3 sm:py-4 bg-ink">
          <div className="w-full border border-sand-mid/10 bg-ink-dark">
             {/* Badge */}
             <div className="flex items-stretch border-b border-sand-mid/10">
