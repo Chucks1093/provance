@@ -2,7 +2,7 @@ import HeroGraphic from "@/components/landing-page/HeroGraphic";
 
 export default function Hero() {
    return (
-      <section className="grid grid-cols-1 md:grid-cols-2 md:gap-8 min-h-screen bg-ink max-w-7xl mx-auto">
+      <section className="grid grid-cols-1 md:grid-cols-2 md:gap-8 min-h-screen bg-ink max-w-7xl mx-auto border-b border-b-sand-faint mb-10">
          {/* Left */}
          <div className="flex flex-col gap-6 md:gap-8 w-full  pt-16 md:pt-25 pb-12 md:pb-0 border-x border-sand-faint px-6 md:px-8 ">
             {/* Badge */}
