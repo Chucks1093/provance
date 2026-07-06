@@ -10,7 +10,7 @@ const navLinks = [
 export default function Header() {
    return (
       <header className="sticky top-0 z-50 flex items-center justify-between px-8 h-[8vh] bg-ink-dark border-b border-white/10">
-         <ProvanceLogo className="text-white" />
+         <ProvanceLogo className="text-sand" />
 
          <nav className="flex items-center gap-10 h-full">
             {navLinks.map((link) => (

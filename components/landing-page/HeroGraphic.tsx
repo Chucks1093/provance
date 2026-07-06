@@ -60,12 +60,12 @@ export default function HeroGraphic() {
    return (
       <div className="relative w-[90%] max-w-[560px] aspect-[0.617647]">
          {/* Spine — FIRST in DOM so solid 3D objects naturally occlude it */}
-         <div className="absolute left-1/2 -translate-x-px top-[4%] bottom-[6%] w-[2px] bg-sand-mid opacity-60 pointer-events-none" />
+         <div className="absolute left-1/2 -translate-x-px top-[4%] bottom-[0%] w-[2px] bg-sand-mid opacity-60 pointer-events-none" />
 
          {/* ── BACK → FRONT render order ── */}
 
          {/* Bottom glow dot (94%) */}
-         <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 top-[94%] flex items-center justify-center">
+         <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 top-[100%] flex items-center justify-center">
             <div className="w-[7px] h-[7px] rounded-full bg-sand-mid" />
          </div>
 
@@ -141,7 +141,7 @@ export default function HeroGraphic() {
          </div>
 
          {/* ANALYZE label (77%) */}
-         <div className="absolute -translate-x-1/2 -translate-y-1/2 top-[77%] left-[71%] w-[43%]">
+         <div className="absolute -translate-x-1/2 -translate-y-1/2 top-[77%] left-[71%] w-[43%] z-10">
             <Label text="ANALYZE" />
          </div>
 
@@ -197,6 +197,16 @@ export default function HeroGraphic() {
                   strokeDashoffset="0"
                   transform="translate(39.5 149)"
                />
+               {/* Line from nut bottom down to center of stepped box top face */}
+               <line
+                  x1="146"
+                  y1="215"
+                  x2="146"
+                  y2="300"
+                  stroke="var(--sand-mid)"
+                  strokeWidth="1.5"
+                  strokeOpacity="0.8"
+               />
             </svg>
          </div>
 
@@ -251,11 +261,21 @@ export default function HeroGraphic() {
                   strokeDashoffset="0"
                   transform="translate(104 104.5)"
                />
+               {/* Line from sphere bottom down to nut center */}
+               <line
+                  x1="149"
+                  y1="297"
+                  x2="149"
+                  y2="418"
+                  stroke="var(--sand-mid)"
+                  strokeWidth="1.5"
+                  strokeOpacity="0.8"
+               />
             </svg>
          </div>
 
          {/* RESOLVE label (36%) */}
-         <div className="absolute -translate-x-1/2 -translate-y-1/2 top-[36%] left-[71%] w-[43%]">
+         <div className="absolute -translate-x-1/2 -translate-y-1/2 top-[36%] left-[71%] w-[43%] z-10">
             <Label text="RESOLVE" />
          </div>
 
@@ -299,10 +319,26 @@ export default function HeroGraphic() {
                   transform="translate(145.5 84.698)"
                />
                {/* Line up from apex */}
-               <line x1="146" y1="84.5" x2="146" y2="-55" stroke="var(--sand-mid)" strokeWidth="1.5" strokeOpacity="0.8" />
+               <line
+                  x1="146"
+                  y1="84.5"
+                  x2="146"
+                  y2="-55"
+                  stroke="var(--sand-mid)"
+                  strokeWidth="1.5"
+                  strokeOpacity="0.8"
+               />
                <circle cx="146" cy="-55" r="4" fill="var(--sand-mid)" />
                {/* Line down from pyramid tip to sphere surface */}
-               <line x1="146" y1="298.5" x2="146" y2="455" stroke="var(--sand-mid)" strokeWidth="1.5" strokeOpacity="0.8" />
+               <line
+                  x1="146"
+                  y1="298.5"
+                  x2="146"
+                  y2="455"
+                  stroke="var(--sand-mid)"
+                  strokeWidth="1.5"
+                  strokeOpacity="0.8"
+               />
                <circle cx="146" cy="455" r="4" fill="var(--sand-mid)" />
             </svg>
          </div>
@@ -311,7 +347,6 @@ export default function HeroGraphic() {
          <div className="absolute -translate-x-1/2 -translate-y-1/2 top-[15%] left-[71%] w-[43%]">
             <Label text="CONNECT" />
          </div>
-
       </div>
    );
 }

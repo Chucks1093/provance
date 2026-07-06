@@ -9,8 +9,8 @@
    --color-foreground: var(--foreground);
    --font-sans: var(--font-inter);
    --font-mono: var(--font-geist-mono);
-   --font-heading: var(--font-manrope);
-   --font-manrope: var(--font-manrope);
+   --font-heading: var(--font-geist);
+   --font-geist: var(--font-geist);
    --font-inter: var(--font-inter);
    --color-sidebar-ring: var(--sidebar-ring);
    --color-sidebar-border: var(--sidebar-border);
