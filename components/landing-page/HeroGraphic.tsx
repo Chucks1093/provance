@@ -298,9 +298,12 @@ export default function HeroGraphic() {
                   strokeDashoffset="0"
                   transform="translate(145.5 84.698)"
                />
-               {/* Line from center of top face up through apex, dot at each end */}
+               {/* Line up from apex */}
                <line x1="146" y1="84.5" x2="146" y2="-55" stroke="var(--sand-mid)" strokeWidth="1.5" strokeOpacity="0.8" />
                <circle cx="146" cy="-55" r="4" fill="var(--sand-mid)" />
+               {/* Line down from pyramid tip to sphere surface */}
+               <line x1="146" y1="298.5" x2="146" y2="455" stroke="var(--sand-mid)" strokeWidth="1.5" strokeOpacity="0.8" />
+               <circle cx="146" cy="455" r="4" fill="var(--sand-mid)" />
             </svg>
          </div>
 
