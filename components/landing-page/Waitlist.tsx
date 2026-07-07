@@ -47,7 +47,7 @@ export default function Waitlist() {
             {/* Body */}
             <div className="grid grid-cols-1 lg:grid-cols-2">
                {/* Left — content + form */}
-               <div className="order-2 lg:order-1 flex flex-col justify-between px-8 sm:px-12 py-12 sm:py-20 border-t lg:border-t-0 lg:border-r border-sand-mid/10">
+               <div className="order-2 .lg:order-1 flex flex-col justify-between px-8 sm:px-12 py-12 sm:py-20 border-t lg:border-t-0 lg:border-r border-sand-mid/10">
                   <div className="flex items-center justify-between w-full max-w-lg  border-t border-b  py-3 border-sand/40 ">
                      <div className="flex items-center gap-2  pr-6 flex-shrink-0">
                         <div className="w-2.5 h-2.5 rounded-full bg-orange flex-shrink-0" />
@@ -119,15 +119,15 @@ export default function Waitlist() {
                </div>
 
                {/* Right — graphic */}
-               <div className="order-1 lg:order-2 relative min-h-[280px] sm:min-h-[360px] lg:min-h-0 overflow-hidden bg-orange">
+               <div className="order-1 .lg:order-2 relative min-h-[280px] sm:min-h-[360px] lg:min-h-0 overflow-hidden bg-orange">
                   <div
                      className=" absolute inset-0 pointer-events-none"
                      style={{
                         backgroundColor: "rgba(29,29,29,0.8)",
                         WebkitMaskImage: "url('/icons/dots.svg')",
-                        WebkitMaskSize: "8px 8px",
+                        WebkitMaskSize: "7px 7px",
                         maskImage: "url('/icons/dots.svg')",
-                        maskSize: "8px 8px",
+                        maskSize: "7px 7px",
                      }}
                   />
                   <div
