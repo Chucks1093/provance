@@ -140,9 +140,9 @@ export default function HeroGraphic() {
             </svg>
          </div>
 
-         {/* ANALYZE label (77%) */}
+         {/* MATCH label (77%) */}
          <div className="absolute -translate-x-1/2 -translate-y-1/2 top-[77%] left-[71%] w-[43%] z-10">
-            <Label text="ANALYZE" />
+            <Label text="MATCH" />
          </div>
 
          {/* Mid-lower hex platform — CONTROL floor (64%) */}
@@ -210,9 +210,9 @@ export default function HeroGraphic() {
             </svg>
          </div>
 
-         {/* CONTROL label (57%) */}
+         {/* HIRE label (57%) */}
          <div className="absolute -translate-x-1/2 -translate-y-1/2 top-[57%] left-[71%] w-[43%]">
-            <Label text="CONTROL" />
+            <Label text="HIRE" />
          </div>
 
          {/* Mid-upper hex platform — RESOLVE floor (43%) */}
@@ -274,9 +274,9 @@ export default function HeroGraphic() {
             </svg>
          </div>
 
-         {/* RESOLVE label (36%) */}
+         {/* EXECUTE label (36%) */}
          <div className="absolute -translate-x-1/2 -translate-y-1/2 top-[36%] left-[71%] w-[43%] z-10">
-            <Label text="RESOLVE" />
+            <Label text="EXECUTE" />
          </div>
 
          {/* Upper hex platform — CONNECT floor (23%) */}
@@ -343,9 +343,9 @@ export default function HeroGraphic() {
             </svg>
          </div>
 
-         {/* CONNECT label (15%) */}
+         {/* EARN label (15%) */}
          <div className="absolute -translate-x-1/2 -translate-y-1/2 top-[15%] left-[71%] w-[43%]">
-            <Label text="CONNECT" />
+            <Label text="EARN" />
          </div>
       </div>
    );

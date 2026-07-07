@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { createClient } from "@/utils/supabase/client";
 
 const STRIPE = {
    backgroundImage:
@@ -34,11 +35,31 @@ function WaitlistGraphic() {
 export default function Waitlist() {
    const [email, setEmail] = useState("");
    const [submitted, setSubmitted] = useState(false);
+   const [error, setError] = useState<string | null>(null);
+   const [loading, setLoading] = useState(false);
 
-   function handleSubmit(e: React.FormEvent) {
+   async function handleSubmit(e: React.FormEvent) {
       e.preventDefault();
       if (!email) return;
-      setSubmitted(true);
+      setLoading(true);
+      setError(null);
+
+      const supabase = createClient();
+      const { error: dbError } = await supabase
+         .from("provance_waitlist")
+         .insert([{ email }]);
+
+      setLoading(false);
+      if (dbError) {
+         if (dbError.code === "23505") {
+            // duplicate email — still treat as success
+            setSubmitted(true);
+         } else {
+            setError("Something went wrong. Please try again.");
+         }
+      } else {
+         setSubmitted(true);
+      }
    }
 
    return (
@@ -103,15 +124,19 @@ export default function Waitlist() {
                                  className="w-full h-[52px] bg-ink border border-sand-mid/20 px-5 text-sand text-sm placeholder-sand/30 outline-none focus:border-sand-mid/50 transition-colors"
                               />
                            </div>
+                           {error && (
+                              <p className="text-orange text-xs font-mono">{error}</p>
+                           )}
                            <button
                               type="submit"
-                              className="w-full h-[52px] bg-sand text-ink-dark font-bold text-xs tracking-widest hover:bg-sand-light transition-colors"
+                              disabled={loading}
+                              className="w-full h-[52px] bg-sand text-ink-dark font-bold text-xs tracking-widest hover:bg-sand-light transition-colors disabled:opacity-50"
                               style={{
                                  clipPath:
                                     "polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px)",
                               }}
                            >
-                              JOIN WAITLIST
+                              {loading ? "JOINING..." : "JOIN WAITLIST"}
                            </button>
                         </form>
                      )}
