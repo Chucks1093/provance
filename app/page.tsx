@@ -10,12 +10,14 @@ export default function LandingPage() {
    return (
       <main className="bg-ink">
          <Header />
-         <Hero />
-         <Overview />
-         <Features />
-         <Faq />
-         <Waitlist />
-         <Footer />
+         <div className="max-w-7xl mx-auto border-x border-sand-mid/10 flex flex-col gap-[5rem] ">
+            <Hero />
+            <Overview />
+            <Features />
+            <Faq />
+            <Waitlist />
+            <Footer />
+         </div>
       </main>
    );
 }
