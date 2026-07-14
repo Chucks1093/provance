@@ -15,4 +15,4 @@ jobs:
 
       - name: Push to personal repo
         run: |
-          git push https://chucks1093:${{ secrets.PERSONAL_REPO_TOKEN }}@github.com/chucks1093/provance-client.git main --force
+          git push https://Chucks1093:${{ secrets.PERSONAL_REPO_TOKEN }}@github.com/Chucks1093/provance-client.git main --force
