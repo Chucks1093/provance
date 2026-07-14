@@ -13,14 +13,14 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Check secret
+      - name: Setup SSH
         run: |
-          if [ -z "${{ secrets.PERSONAL_REPO_TOKEN }}" ]; then
-            echo "SECRET IS EMPTY"
-          else
-            echo "SECRET IS SET"
-          fi
+          mkdir -p ~/.ssh
+          echo "${{ secrets.MIRROR_SSH_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
 
       - name: Push to personal repo
         run: |
-          git push https://Chucks1093:${{ secrets.PERSONAL_REPO_TOKEN }}@github.com/Chucks1093/provance-client.git main --force
+          git remote add personal git@github.com:Chucks1093/provance-client.git
+          git push personal main --force
