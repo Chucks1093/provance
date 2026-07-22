@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import ProvanceLogo from "@/components/shared/ProvanceLogo";
 import Link from "next/link";
+import AuthModal from "@/components/shared/AuthModal";
 
 const navLinks = [
    { label: "About", href: "/about" },
@@ -14,11 +15,13 @@ const navLinks = [
 
 export default function Header() {
    const [open, setOpen] = useState(false);
+   const [authOpen, setAuthOpen] = useState(false);
 
    return (
+      <>
       <header className="sticky top-0 z-50 bg-ink-dark border-b border-sand-faint">
          {/* Main bar */}
-         <div className="h-[8vh] flex items-center justify-between border-x border-sand-faint px-4 md:px-6 max-w-7xl mx-auto w-full">
+         <div className="h-[8vh] max-h-[72px] flex items-center justify-between border-x border-sand-faint px-4 md:px-6 max-w-7xl mx-auto w-full">
             <Link href="/">
                <ProvanceLogo className="text-sand" />
             </Link>
@@ -34,12 +37,12 @@ export default function Header() {
                      {link.label}
                   </a>
                ))}
-               <a
-                  href="#waitlist"
-                  className="px-6 py-3 text-sm font-bold bg-orange text-ink-dark hover:bg-orange-dark transition-colors h-full flex items-center"
+               <button
+                  onClick={() => setAuthOpen(true)}
+                  className="px-6 py-3 text-sm font-bold bg-orange text-ink-dark hover:bg-orange-dark transition-colors h-full flex items-center cursor-pointer"
                >
                   GET STARTED
-               </a>
+               </button>
             </nav>
 
             {/* Mobile hamburger */}
@@ -66,20 +69,21 @@ export default function Header() {
                         {link.label}
                      </a>
                   ))}
-                  <a
-                     href="#waitlist"
-                     onClick={() => setOpen(false)}
-                     className="mx-6 my-4 flex items-center justify-center py-3 bg-orange text-ink-dark text-sm font-bold hover:bg-orange-dark transition-colors"
+                  <button
+                     onClick={() => { setOpen(false); setAuthOpen(true); }}
+                     className="mx-6 my-4 flex items-center justify-center py-3 bg-orange text-ink-dark text-sm font-bold hover:bg-orange-dark transition-colors cursor-pointer"
                      style={{
                         clipPath:
                            "polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px)",
                      }}
                   >
                      GET STARTED
-                  </a>
+                  </button>
                </div>
             </div>
          )}
       </header>
+      <AuthModal open={authOpen} onOpenChange={setAuthOpen} />
+   </>
    );
 }

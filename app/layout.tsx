@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import PrivyAuthProvider from "@/components/providers/PrivyAuthProvider";
 
 const inter = Inter({
    variable: "--font-inter",
@@ -70,10 +71,10 @@ export default function RootLayout({
    return (
       <html
          lang="en"
-         className={`${inter.variable} ${geist.variable} ${geistMono.variable} h-full antialiased`}
+         className={`${inter.variable} ${geist.variable} ${geistMono.variable} h-full antialiased dark`}
       >
          <body className="min-h-full flex flex-col bg-black relative overflow-x-hidden">
-            {children}
+            <PrivyAuthProvider>{children}</PrivyAuthProvider>
          </body>
       </html>
    );
