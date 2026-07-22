@@ -14,6 +14,8 @@ import {
 import "@xyflow/react/dist/style.css";
 
 import { AgentNodeComponent } from "./AgentNode";
+import { AddAgentSheet } from "./AddAgentSheet";
+import { EditorProvider } from "./EditorContext";
 import {
    INITIAL_NODES,
    INITIAL_EDGES,
@@ -33,35 +35,40 @@ function Canvas() {
    );
 
    return (
-      <ReactFlow
-         nodes={nodes}
-         edges={edges}
-         onNodesChange={onNodesChange}
-         onEdgesChange={onEdgesChange}
-         onConnect={onConnect}
-         nodeTypes={nodeTypes}
-         defaultEdgeOptions={{
-            type: "smoothstep",
-            style: { stroke: "rgba(227,216,197,0.3)", strokeWidth: 1.5 },
-         }}
-         fitView
-         proOptions={{ hideAttribution: true }}
-         className="bg-ink"
-      >
-         <Background
-            variant={BackgroundVariant.Dots}
-            gap={20}
-            size={1}
-            color="#e3d8c520"
-         />
-      </ReactFlow>
+      <>
+         <ReactFlow
+            nodes={nodes}
+            edges={edges}
+            onNodesChange={onNodesChange}
+            onEdgesChange={onEdgesChange}
+            onConnect={onConnect}
+            nodeTypes={nodeTypes}
+            defaultEdgeOptions={{
+               type: "smoothstep",
+               style: { stroke: "rgba(227,216,197,0.3)", strokeWidth: 1.5 },
+            }}
+            fitView
+            proOptions={{ hideAttribution: true }}
+            className="bg-ink"
+         >
+            <Background
+               variant={BackgroundVariant.Dots}
+               gap={20}
+               size={1}
+               color="#e3d8c520"
+            />
+         </ReactFlow>
+         <AddAgentSheet />
+      </>
    );
 }
 
 export function EditorCanvas() {
    return (
-      <ReactFlowProvider>
-         <Canvas />
-      </ReactFlowProvider>
+      <EditorProvider>
+         <ReactFlowProvider>
+            <Canvas />
+         </ReactFlowProvider>
+      </EditorProvider>
    );
 }
