@@ -8,6 +8,7 @@ import {
 export type AgentNodeData = {
    label: string;
    icon: string;
+   isTrigger?: boolean;
 };
 
 export type AgentNode = Node<AgentNodeData, "agent">;
@@ -33,12 +34,12 @@ export const INITIAL_NODES: AgentNode[] = [
       id: "1",
       type: "agent",
       position: { x: 200, y: 160 },
-      data: { label: "Trigger", icon: "Zap" },
+      data: { label: "Trigger", icon: "Zap", isTrigger: true },
    },
    {
       id: "2",
       type: "agent",
-      position: { x: 420, y: 160 },
+      position: { x: 310, y: 160 },
       data: { label: "Research Agent", icon: "Search" },
    },
 ];
