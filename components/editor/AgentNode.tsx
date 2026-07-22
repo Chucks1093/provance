@@ -47,7 +47,7 @@ export function AgentNodeComponent({
          {/* Node card */}
          <div
             className={`
-               min-w-[160px] rounded-lg border px-4 py-3
+               min-w-[160px] rounded-sm border px-4 py-3
                bg-ink-dark text-sand transition-colors
                ${selected ? "border-orange shadow-[0_0_0_1px_#d95e28]" : "border-sand/20"}
             `}
@@ -67,7 +67,9 @@ export function AgentNodeComponent({
                />
             )}
 
-            <p className="text-xs font-semibold text-sand leading-none">{data.label}</p>
+            <p className="text-xs font-semibold text-sand leading-none">
+               {data.label}
+            </p>
             {data.description && (
                <p className="text-[10px] text-sand/50 mt-1 leading-snug">
                   {data.description}
