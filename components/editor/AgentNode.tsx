@@ -12,7 +12,7 @@ import {
 import { Plus, Zap } from "lucide-react";
 import { NodeToolbar } from "./NodeToolbar";
 import { useEditor } from "./EditorContext";
-import { ICON_MAP, type AgentNode } from "./editor.constants";
+import type { AgentNode } from "./editor.constants";
 
 const BOX_SIZE = 64;
 
@@ -42,7 +42,6 @@ export function AgentNodeComponent({
       hideTimer.current = setTimeout(() => setToolbarVisible(false), 120);
    };
 
-   const Icon = ICON_MAP[data.icon];
 
    return (
       <div
@@ -83,7 +82,7 @@ export function AgentNodeComponent({
                />
             )}
 
-            {Icon && <Icon size={26} strokeWidth={1.25} className="text-sand/80" />}
+            <img src={data.icon} alt={data.label} width={28} height={28} className="object-contain" />
 
             {data.isTrigger && (
                <Zap size={12} strokeWidth={2} className="absolute -left-5 top-1/2 -translate-y-1/2 text-orange fill-orange" />

@@ -1,9 +1,4 @@
 import type { Node, Edge } from "@xyflow/react";
-import {
-   Zap, Search, FileSearch, MessageSquare, AlertTriangle,
-   Bell, Wallet, TrendingUp, Droplets, Image, FileText, Webhook,
-   type LucideIcon,
-} from "lucide-react";
 
 export type AgentNodeData = {
    label: string;
@@ -14,33 +9,18 @@ export type AgentNodeData = {
 export type AgentNode = Node<AgentNodeData, "agent">;
 export type AgentEdge = Edge;
 
-export const ICON_MAP: Record<string, LucideIcon> = {
-   Zap,
-   Search,
-   FileSearch,
-   MessageSquare,
-   AlertTriangle,
-   Bell,
-   Wallet,
-   TrendingUp,
-   Droplets,
-   Image,
-   FileText,
-   Webhook,
-};
-
 export const INITIAL_NODES: AgentNode[] = [
    {
       id: "1",
       type: "agent",
       position: { x: 200, y: 160 },
-      data: { label: "Trigger", icon: "Zap", isTrigger: true },
+      data: { label: "Trigger", icon: "/icons/agents/trigger.svg", isTrigger: true },
    },
    {
       id: "2",
       type: "agent",
       position: { x: 310, y: 160 },
-      data: { label: "Research Agent", icon: "Search" },
+      data: { label: "Research Agent", icon: "/icons/agents/sentiment.svg" },
    },
 ];
 
