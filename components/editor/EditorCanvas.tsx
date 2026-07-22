@@ -47,6 +47,8 @@ function Canvas() {
                type: "smoothstep",
                style: { stroke: "rgba(227,216,197,0.3)", strokeWidth: 1.5 },
             }}
+            snapToGrid
+            snapGrid={[20, 20]}
             fitView
             proOptions={{ hideAttribution: true }}
             className="bg-ink"
