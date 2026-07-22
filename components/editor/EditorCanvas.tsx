@@ -6,8 +6,6 @@ import {
    ReactFlowProvider,
    Background,
    BackgroundVariant,
-   Controls,
-   MiniMap,
    addEdge,
    useNodesState,
    useEdgesState,
@@ -42,6 +40,10 @@ function Canvas() {
          onEdgesChange={onEdgesChange}
          onConnect={onConnect}
          nodeTypes={nodeTypes}
+         defaultEdgeOptions={{
+            type: "smoothstep",
+            style: { stroke: "rgba(227,216,197,0.3)", strokeWidth: 1.5 },
+         }}
          fitView
          proOptions={{ hideAttribution: true }}
          className="bg-ink"
@@ -51,12 +53,6 @@ function Canvas() {
             gap={20}
             size={1}
             color="#e3d8c520"
-         />
-         <Controls className="[&>button]:bg-ink-dark [&>button]:border-sand/20 [&>button]:text-sand [&>button:hover]:bg-sidebar-accent" />
-         <MiniMap
-            nodeColor="#d95e28"
-            maskColor="#1d1d1d99"
-            className="!bg-ink-dark !border !border-sand/20"
          />
       </ReactFlow>
    );

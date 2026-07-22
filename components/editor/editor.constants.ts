@@ -23,6 +23,8 @@ export const INITIAL_NODES: AgentNode[] = [
    },
 ];
 
+const EDGE_STYLE = { stroke: "rgba(227,216,197,0.3)", strokeWidth: 1.5 };
+
 export const INITIAL_EDGES: AgentEdge[] = [
-   { id: "e1-2", source: "1", target: "2" },
+   { id: "e1-2", source: "1", target: "2", type: "smoothstep", style: EDGE_STYLE },
 ];
