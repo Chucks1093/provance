@@ -115,7 +115,7 @@ export function ProjectSelector({
                />
                <span
                   title={selected?.name}
-                  className="text-sand/70 max-w-32 lg:max-w-64 truncate text-sm"
+                  className="text-sand font-medium max-w-32 lg:max-w-64 truncate text-sm"
                >
                   {selected?.name}
                </span>

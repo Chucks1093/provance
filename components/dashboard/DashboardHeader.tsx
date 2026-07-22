@@ -19,7 +19,7 @@ import {
 import ProvanceLogo from "@/components/shared/ProvanceLogo";
 import { useAuthStore } from "@/stores/useAuthStore";
 
-const PROJECTS: Project[] = [{ id: "1", name: "My Workspace" }];
+const PROJECTS: Project[] = [{ id: "1", name: "Provance" }];
 
 export default function DashboardHeader() {
    const router = useRouter();
