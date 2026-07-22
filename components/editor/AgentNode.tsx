@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
    Handle,
    Position,
@@ -26,81 +26,80 @@ export function AgentNodeComponent({
    const updateNodeInternals = useUpdateNodeInternals();
    const edges = useEdges();
    const hasOutgoing = edges.some((e) => e.source === id);
-   const [hovered, setHovered] = useState(false);
+   const [toolbarVisible, setToolbarVisible] = useState(false);
+   const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
    useEffect(() => {
       updateNodeInternals(id);
    }, [id, hasOutgoing, updateNodeInternals]);
 
+   const showToolbar = () => {
+      if (hideTimer.current) clearTimeout(hideTimer.current);
+      setToolbarVisible(true);
+   };
+
+   const hideToolbar = () => {
+      hideTimer.current = setTimeout(() => setToolbarVisible(false), 120);
+   };
+
    const Icon = ICON_MAP[data.icon];
-   const toolbarVisible = hovered || selected;
 
    return (
       <div
-         onMouseEnter={() => setHovered(true)}
-         onMouseLeave={() => setHovered(false)}
          className="relative"
          style={{ width: BOX_SIZE }}
+         onMouseEnter={showToolbar}
+         onMouseLeave={hideToolbar}
       >
-         {/* Box — handles live inside so they center at 50% of box height */}
+         {/* Box */}
          <div
             style={{ width: BOX_SIZE, height: BOX_SIZE }}
             className={`
-               relative flex items-center justify-center rounded-xl border
+               relative flex items-center justify-center rounded-md border
                bg-ink-dark transition-colors
+               ${toolbarVisible ? "ring-1 ring-sand/20" : ""}
                ${selected ? "border-orange shadow-[0_0_0_1px_#d95e28]" : "border-sand/20"}
             `}
          >
             <NodeToolbar
-               visible={toolbarVisible}
+               visible={toolbarVisible || (selected ?? false)}
                onDelete={() => deleteElements({ nodes: [{ id }] })}
+               onMouseEnter={showToolbar}
+               onMouseLeave={hideToolbar}
             />
 
             {!data.isTrigger && (
                <Handle
                   type="target"
                   position={Position.Left}
-                  className="!w-2 !h-2 !bg-sand/40 !border-0"
+                  className="!w-2.5 !h-2.5 !bg-ink !border !border-sand/50 !rounded-full"
                />
             )}
             {hasOutgoing && (
                <Handle
                   type="source"
                   position={Position.Right}
-                  className="!w-2 !h-2 !bg-sand/40 !border-0"
+                  className="!w-2.5 !h-2.5 !bg-ink !border !border-sand/50 !rounded-full"
                />
             )}
 
-            {Icon && (
-               <Icon size={26} strokeWidth={1.25} className="text-sand/80" />
-            )}
+            {Icon && <Icon size={26} strokeWidth={1.25} className="text-sand/80" />}
 
             {data.isTrigger && (
-               <Zap
-                  size={12}
-                  strokeWidth={2}
-                  className="absolute -left-5 top-1/2 -translate-y-1/2 text-orange fill-orange"
-               />
+               <Zap size={12} strokeWidth={2} className="absolute -left-5 top-1/2 -translate-y-1/2 text-orange fill-orange" />
             )}
          </div>
 
-         {/* Label below */}
-         <p
-            className="mt-2 text-[11px] text-sand/70 text-center leading-snug"
-            style={{ width: BOX_SIZE }}
-         >
+         {/* Label */}
+         <p className="mt-2 text-[11px] text-sand/70 text-center leading-snug" style={{ width: BOX_SIZE }}>
             {data.label}
          </p>
 
-         {/* Plus button — absolutely positioned at right-center of box */}
+         {/* Plus button */}
          {!hasOutgoing && (
             <div
                className="nodrag absolute flex items-center"
-               style={{
-                  top: BOX_SIZE / 2,
-                  left: BOX_SIZE,
-                  transform: "translateY(-50%)",
-               }}
+               style={{ top: BOX_SIZE / 2, left: BOX_SIZE, transform: "translateY(-50%)" }}
             >
                <div className="w-6 h-px bg-sand/20" />
                <button

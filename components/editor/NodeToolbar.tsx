@@ -12,12 +12,16 @@ import {
 interface NodeToolbarProps {
    visible: boolean;
    onDelete: () => void;
+   onMouseEnter?: () => void;
+   onMouseLeave?: () => void;
 }
 
-export function NodeToolbar({ visible, onDelete }: NodeToolbarProps) {
+export function NodeToolbar({ visible, onDelete, onMouseEnter, onMouseLeave }: NodeToolbarProps) {
    return (
       <div
-         className={`nodrag absolute -top-9 left-1/2 -translate-x-1/2 flex items-center gap-px bg-ink-dark border border-sand/15 rounded px-0.5 py-0.5 transition-opacity duration-150 ${visible ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+         onMouseEnter={onMouseEnter}
+         onMouseLeave={onMouseLeave}
+         className={`nodrag absolute -top-9 left-1/2 -translate-x-1/2 flex items-center gap-px bg-ink-dark border border-sand/15 rounded px-0.5 py-0.5 transition-opacity duration-150 ${visible ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
       >
          <button
             title="Run"
@@ -50,13 +54,17 @@ export function NodeToolbar({ visible, onDelete }: NodeToolbarProps) {
                   <MoreHorizontal size={10} strokeWidth={2} />
                </button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent side="top" align="start" className="w-44">
-               <DropdownMenuItem>Open</DropdownMenuItem>
-               <DropdownMenuItem>Execute step</DropdownMenuItem>
-               <DropdownMenuItem>Rename</DropdownMenuItem>
-               <DropdownMenuSeparator />
+            <DropdownMenuContent
+               side="top"
+               align="start"
+               className="w-44 bg-ink-dark border-sand/15 text-sand shadow-xl"
+            >
+               <DropdownMenuItem className="text-sm text-sand/80 focus:bg-sand/8 focus:text-sand cursor-pointer py-2">Open</DropdownMenuItem>
+               <DropdownMenuItem className="text-sm text-sand/80 focus:bg-sand/8 focus:text-sand cursor-pointer py-2">Execute step</DropdownMenuItem>
+               <DropdownMenuItem className="text-sm text-sand/80 focus:bg-sand/8 focus:text-sand cursor-pointer py-2">Rename</DropdownMenuItem>
+               <DropdownMenuSeparator className="bg-sand/10" />
                <DropdownMenuItem
-                  className="text-red-400 focus:text-red-400"
+                  className="text-sm text-red-400 focus:bg-sand/8 focus:text-red-400 cursor-pointer py-2"
                   onClick={onDelete}
                >
                   Delete
